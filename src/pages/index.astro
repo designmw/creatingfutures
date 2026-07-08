@@ -1,0 +1,20 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import LocalBusinessSchema from '~/components/schema/LocalBusinessSchema.astro';
+
+const metadata = {
+  title: 'Home',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="head">
+    <LocalBusinessSchema />
+  </Fragment>
+
+  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 max-w-4xl">
+    <h1 class="font-bold font-heading text-4xl md:text-5xl">Home</h1>
+    <p class="mt-4 text-muted">Placeholder — add your homepage content here.</p>
+  </section>
+</Layout>

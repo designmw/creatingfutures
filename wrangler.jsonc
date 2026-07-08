@@ -1,0 +1,12 @@
+// Cloudflare config for this project (read by wrangler and by the
+// @astrojs/cloudflare adapter, which merges it with its own defaults and
+// emits the full deployable config to dist/server/wrangler.json at build).
+//
+// Per client site, change `name` — it becomes the Worker name and the
+// <name>.workers.dev preview URL. Add KV/D1/R2/etc. bindings here if a
+// site ever needs them; the adapter passes them through.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "dmw-astro-base",
+  "compatibility_date": "2026-04-15",
+}
