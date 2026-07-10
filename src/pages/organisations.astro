@@ -1,0 +1,95 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Breadcrumbs from '~/components/common/Breadcrumbs.astro';
+import ServiceSchema from '~/components/schema/ServiceSchema.astro';
+import Features from '~/components/widgets/Features.astro';
+import TestimonialsData from '~/components/widgets/TestimonialsData.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Recruitment & Interviewing Services for Organisations',
+  description:
+    'Bespoke recruitment support and independent interviewing for SMEs, corporates and the public sector — job specs, adverts, shortlisting and interview panels.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="head">
+    <ServiceSchema
+      name="Recruitment & Interviewing Services for Organisations"
+      description="Bespoke recruitment support and independent interviewing services for SMEs, corporates and public sector organisations."
+    />
+  </Fragment>
+
+  <section class="px-4 pt-12 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Organisations' }]} />
+
+    <h1 class="mt-6 font-bold font-heading text-4xl md:text-5xl tracking-tight">Organisations</h1>
+    <p class="mt-4 text-xl text-muted">
+      Bespoke recruitment support and independent interviewing for SMEs, corporates and public sector organisations —
+      from an experienced recruiter who has interviewed thousands of candidates.
+    </p>
+  </section>
+
+  <Features
+    tagline="Interviewing services"
+    title="An expert, independent voice on your interview panel"
+    subtitle="With experience across the public and private sectors, I can chair your interviews or act as an independent interview panel member — and support shortlisting too."
+    columns={2}
+    items={[
+      {
+        title: 'Chair or independent panel member',
+        description: 'An expert interviewer to chair interviews or serve as an independent member of your panel.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Candidate interviewing & shortlisting',
+        description: 'Thousands of candidates interviewed, with hands-on involvement in shortlisting for interview.',
+        icon: 'tabler:user-check',
+      },
+    ]}
+  />
+
+  <Features
+    tagline="Recruitment services"
+    title="Bespoke recruitment support, end to end"
+    subtitle="Practical help at every stage of the hiring process, tailored to your organisation."
+    columns={3}
+    items={[
+      {
+        title: 'Job & person specifications',
+        description: 'Preparing clear job and person specifications that attract the right candidates.',
+        icon: 'tabler:file-description',
+      },
+      {
+        title: 'Job adverts & recruitment methods',
+        description: 'Writing appealing job adverts and advising on the most effective recruitment methods.',
+        icon: 'tabler:speakerphone',
+      },
+      {
+        title: 'Shortlisting',
+        description: 'Shortlisting candidates for interview against the requirements of the role.',
+        icon: 'tabler:list-check',
+      },
+      {
+        title: 'Interview questions & assessment',
+        description: 'Preparing interview questions and the appropriate interview assessment forms.',
+        icon: 'tabler:clipboard-text',
+      },
+      {
+        title: 'Interview panels',
+        description: 'Chairing the interview panel or acting as an independent interview panel member.',
+        icon: 'tabler:gavel',
+      },
+    ]}
+  />
+
+  <TestimonialsData tagline="Testimonials" title="What clients say" />
+
+  <CallToAction
+    title="Hiring soon?"
+    subtitle="Tell me about the role and the support you need — from writing the spec to sitting on the panel."
+    actions={[{ variant: 'primary', text: 'Make an inquiry', href: getPermalink('/contact') }]}
+  />
+</Layout>

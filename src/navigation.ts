@@ -1,11 +1,14 @@
-import { getPermalink, getBlogPermalink } from './utils/permalinks';
+import { getPermalink } from './utils/permalinks';
 import { business } from './config/business';
 
 // Contact hrefs derived from the single source of truth in config/business.ts —
 // they update automatically once the client's real details are filled in.
-const telHref = `tel:${business.telephone.replace(/\s/g, '')}`;
-const whatsappHref = `https://wa.me/${business.telephone.replace(/\D/g, '')}`;
+// Creating Futures is email-first: no public phone number, so phone/WhatsApp
+// entries are only included when a telephone is set.
+const telHref = business.telephone ? `tel:${business.telephone.replace(/\s/g, '')}` : undefined;
+const whatsappHref = business.telephone ? `https://wa.me/${business.telephone.replace(/\D/g, '')}` : undefined;
 const emailHref = business.email ? `mailto:${business.email}` : undefined;
+const linkedInHref = business.sameAs?.find((url) => url.includes('linkedin.com'));
 
 export const headerData = {
   links: [
@@ -18,19 +21,27 @@ export const headerData = {
       href: getPermalink('/about'),
     },
     {
-      text: 'Services',
+      text: 'Individuals',
       href: getPermalink('/services'),
     },
     {
-      text: 'Blog',
-      href: getBlogPermalink(),
+      text: 'Organisations',
+      href: getPermalink('/organisations'),
+    },
+    {
+      text: 'Schools',
+      href: getPermalink('/schools'),
+    },
+    {
+      text: 'Pricing',
+      href: getPermalink('/pricing'),
     },
     {
       text: 'Contact',
       href: getPermalink('/contact'),
     },
   ],
-  actions: [],
+  actions: [{ variant: 'primary' as const, text: 'Make an inquiry', href: getPermalink('/contact') }],
 };
 
 // Default footer structure — the standing standard for every client build:
@@ -45,17 +56,20 @@ export const footerData = {
       links: [
         { text: 'Home', href: getPermalink('/'), icon: 'tabler:home' },
         { text: 'About', href: getPermalink('/about'), icon: 'tabler:user' },
-        { text: 'Services', href: getPermalink('/services'), icon: 'tabler:briefcase' },
-        { text: 'Blog', href: getBlogPermalink(), icon: 'tabler:news' },
+        { text: 'Coaching for individuals', href: getPermalink('/services'), icon: 'tabler:briefcase' },
+        { text: 'Organisations', href: getPermalink('/organisations'), icon: 'tabler:building' },
+        { text: 'Schools', href: getPermalink('/schools'), icon: 'tabler:school' },
+        { text: 'Pricing', href: getPermalink('/pricing'), icon: 'tabler:tag' },
         { text: 'Contact', href: getPermalink('/contact'), icon: 'tabler:message-circle' },
       ],
     },
     {
       title: 'Get in touch',
       links: [
-        { text: business.telephone, href: telHref, icon: 'tabler:phone' },
-        { text: 'Message on WhatsApp', href: whatsappHref, icon: 'tabler:brand-whatsapp' },
+        ...(business.telephone && telHref ? [{ text: business.telephone, href: telHref, icon: 'tabler:phone' }] : []),
+        ...(whatsappHref ? [{ text: 'Message on WhatsApp', href: whatsappHref, icon: 'tabler:brand-whatsapp' }] : []),
         ...(business.email ? [{ text: business.email, href: emailHref, icon: 'tabler:mail' }] : []),
+        ...(linkedInHref ? [{ text: 'Connect on LinkedIn', href: linkedInHref, icon: 'tabler:brand-linkedin' }] : []),
         { text: `${business.address.locality}, ${business.address.region}`, icon: 'tabler:map-pin' },
       ],
     },
@@ -65,8 +79,7 @@ export const footerData = {
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'WhatsApp', icon: 'tabler:brand-whatsapp', href: whatsappHref },
+    ...(linkedInHref ? [{ ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: linkedInHref }] : []),
     ...(emailHref ? [{ ariaLabel: 'Email', icon: 'tabler:mail', href: emailHref }] : []),
   ],
   footNote: `${business.name}. All rights reserved. Website by <a href="https://designmywebsite.ie" target="_blank" rel="noopener noreferrer" class="hover:underline">Design My Website</a>`,

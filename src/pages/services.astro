@@ -5,7 +5,9 @@ import Layout from '~/layouts/PageLayout.astro';
 import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
-  title: 'Services',
+  title: 'Coaching for Individuals',
+  description:
+    'One-to-one career services for job seekers in Ireland — professional CV writing, LinkedIn rewrites, targeted cover letters, interview coaching and application form reviews.',
 };
 
 // Cards are generated from the `service` content collection (src/data/services/).
@@ -17,8 +19,10 @@ const services = (await getCollection('service', ({ data }) => !data.draft)).sor
 <Layout metadata={metadata}>
   <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 max-w-6xl">
     <div class="max-w-3xl">
-      <h1 class="font-bold font-heading text-4xl md:text-5xl tracking-tight">Services</h1>
-      <p class="mt-4 text-xl text-muted">What we do — pick a service to learn more.</p>
+      <h1 class="font-bold font-heading text-4xl md:text-5xl tracking-tight">Coaching for individuals</h1>
+      <p class="mt-4 text-xl text-muted">
+        One-to-one support at every stage of your job search — pick a service to learn more.
+      </p>
     </div>
 
     {

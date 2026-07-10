@@ -1,14 +1,117 @@
 ---
+import { Icon } from 'astro-icon/components';
 import Layout from '~/layouts/PageLayout.astro';
+import Breadcrumbs from '~/components/common/Breadcrumbs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Pricing',
+  description:
+    'Clear, fixed pricing for CV writing, LinkedIn optimisation, cover letters, interview coaching and application form reviews — for graduates through to senior professionals.',
 };
+
+// Full price list from the live site, grouped by experience level.
+const tiers = [
+  {
+    name: 'Senior Professional',
+    note: "10+ years' experience",
+    icon: 'tabler:briefcase',
+    items: [
+      { label: 'CV rewrite', price: '€300' },
+      { label: 'LinkedIn rewrite & optimisation', price: '€250' },
+      { label: 'CV & targeted cover letter', price: '€350' },
+      { label: 'CV & LinkedIn', price: '€450' },
+      { label: 'CV, targeted cover letter & LinkedIn', price: '€500' },
+      { label: 'Mock interview', price: '€450' },
+      { label: 'Civil Service application form review', price: '€250' },
+    ],
+  },
+  {
+    name: 'Experienced Professional',
+    note: "2–10 years' experience",
+    icon: 'tabler:trending-up',
+    items: [
+      { label: 'CV rewrite', price: '€230' },
+      { label: 'LinkedIn rewrite & optimisation', price: '€150' },
+      { label: 'CV & targeted cover letter', price: '€275' },
+      { label: 'CV & LinkedIn', price: '€325' },
+      { label: 'CV, targeted cover letter & LinkedIn', price: '€350' },
+      { label: 'Mock interview', price: '€350' },
+      { label: 'Civil Service application form review', price: '€200' },
+    ],
+  },
+  {
+    name: 'Graduate',
+    note: "0–2 years' experience",
+    icon: 'tabler:school',
+    items: [
+      { label: 'CV rewrite', price: '€170' },
+      { label: 'LinkedIn rewrite & optimisation', price: '€130' },
+      { label: 'CV & targeted cover letter', price: '€200' },
+      { label: 'CV & LinkedIn', price: '€250' },
+      { label: 'CV, targeted cover letter & LinkedIn', price: '€275' },
+      { label: 'Mock interview', price: '€250' },
+      { label: 'Application form review', price: '€150' },
+    ],
+  },
+  {
+    name: 'School Level',
+    note: 'Students',
+    icon: 'tabler:backpack',
+    items: [{ label: 'CV & cover letter', price: '€60' }],
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 max-w-4xl">
-    <h1 class="font-bold font-heading text-4xl md:text-5xl">Pricing</h1>
-    <p class="mt-4 text-muted">Placeholder — add your pricing content here.</p>
+  <section class="px-4 py-12 sm:px-6 mx-auto lg:px-8 lg:py-16 max-w-6xl">
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Pricing' }]} />
+
+    <div class="mt-6 max-w-3xl">
+      <h1 class="font-bold font-heading text-4xl md:text-5xl tracking-tight">Pricing</h1>
+      <p class="mt-4 text-xl text-muted">
+        Clear, fixed prices based on your experience level — no surprises. Every service is delivered one-to-one and
+        tailored to the role you're targeting.
+      </p>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {
+        tiers.map((tier) => (
+          <div class="flex flex-col rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 shadow-sm">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gray-100 dark:bg-slate-800 shrink-0">
+                <Icon name={tier.icon} class="h-6 w-6 text-primary" />
+              </span>
+              <div>
+                <h2 class="font-semibold font-heading text-xl text-heading">{tier.name}</h2>
+                <p class="text-sm text-muted">{tier.note}</p>
+              </div>
+            </div>
+            <ul class="mt-6 divide-y divide-gray-100 dark:divide-slate-800">
+              {tier.items.map(({ label, price }) => (
+                <li class="flex items-baseline justify-between gap-4 py-2.5">
+                  <span class="text-default">{label}</span>
+                  <span class="font-semibold text-primary whitespace-nowrap">{price}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="mt-8 text-muted">
+      Working with an organisation or school? <a href={getPermalink('/contact')} class="text-primary hover:underline"
+        >Get in touch</a
+      > for a tailored quote for recruitment support or student workshops.
+    </p>
   </section>
+
+  <CallToAction
+    title="Not sure which option fits?"
+    subtitle="Send me a note about where you are in your career and the role you're after — I'll recommend the right package."
+    actions={[{ variant: 'primary', text: 'Make an inquiry', href: getPermalink('/contact') }]}
+  />
 </Layout>

@@ -7,6 +7,6 @@
 // site ever needs them; the adapter passes them through.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "dmw-astro-base",
+  "name": "creating-futures",
   "compatibility_date": "2026-04-15",
 }

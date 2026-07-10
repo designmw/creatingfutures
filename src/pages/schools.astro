@@ -1,0 +1,65 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Breadcrumbs from '~/components/common/Breadcrumbs.astro';
+import ServiceSchema from '~/components/schema/ServiceSchema.astro';
+import Features from '~/components/widgets/Features.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'CV & Interview Workshops for Schools',
+  description:
+    'Interactive CV workshops, mock interviews and personalised feedback for Senior Cycle and Transition Year students — building confidence for part-time jobs and work experience.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="head">
+    <ServiceSchema
+      name="CV & Interview Workshops for Schools"
+      description="Interactive CV workshops, interview workshops and mock interview sessions for Senior Cycle and Transition Year students."
+    />
+  </Fragment>
+
+  <section class="px-4 pt-12 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Schools' }]} />
+
+    <h1 class="mt-6 font-bold font-heading text-4xl md:text-5xl tracking-tight">Schools</h1>
+    <p class="mt-4 text-xl text-muted">
+      Practical, interactive workshops that prepare Senior Cycle and Transition Year students for part-time jobs, summer
+      work and work experience — and build confidence for their first interviews.
+    </p>
+  </section>
+
+  <Features
+    tagline="For student groups"
+    title="Workshops that get students application-ready"
+    columns={3}
+    items={[
+      {
+        title: 'Senior Cycle CV workshops',
+        description:
+          'A 2-hour interactive workshop giving student groups hands-on, practical guidance in creating an impactful, modern CV and cover letter — with CV templates provided.',
+        icon: 'tabler:file-cv',
+      },
+      {
+        title: 'CV workshops with personalised follow-up',
+        description:
+          'The same 2-hour interactive CV and cover letter workshop, plus personalised feedback and edits for each student on the materials they produce.',
+        icon: 'tabler:user-edit',
+      },
+      {
+        title: 'Interview workshops & mock interviews',
+        description:
+          'Interview workshops and one-to-one mock interview sessions that build confidence and reduce anxiety, enabling students to perform to their potential.',
+        icon: 'tabler:messages',
+      },
+    ]}
+  />
+
+  <CallToAction
+    title="Bring a workshop to your school"
+    subtitle="Workshops fit neatly into Transition Year and Senior Cycle programmes — get in touch to arrange a date."
+    actions={[{ variant: 'primary', text: 'Make an inquiry', href: getPermalink('/contact') }]}
+  />
+</Layout>

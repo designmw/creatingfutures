@@ -1,7 +1,14 @@
 ---
+import Image from '~/components/common/Image.astro';
 import { SITE } from 'astrowind:config';
+import logo from '~/assets/images/creating-futures-logo.png';
 ---
 
-<span class="self-center text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white">
-  🚀 {SITE?.name}
-</span>
+<Image
+  src={logo}
+  alt={`${SITE?.name} — CV & Interview Coach`}
+  class="h-18 md:h-20 w-auto"
+  width={484}
+  height={160}
+  loading="eager"
+/>

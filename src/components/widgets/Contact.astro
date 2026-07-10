@@ -25,7 +25,7 @@ const {
 
 const tel = business.telephone;
 const details = [
-  { icon: 'tabler:phone', label: 'Phone', value: tel, href: `tel:${tel.replace(/\s/g, '')}` },
+  ...(tel ? [{ icon: 'tabler:phone', label: 'Phone', value: tel, href: `tel:${tel.replace(/\s/g, '')}` }] : []),
   ...(business.email
     ? [{ icon: 'tabler:mail', label: 'Email', value: business.email, href: `mailto:${business.email}` }]
     : []),
@@ -45,7 +45,7 @@ const formHeading = title || 'Send us a message';
     {/* Left — contact details */}
     <div class="lg:pr-8">
       <h2 class="text-3xl md:text-4xl font-bold font-heading text-heading">Contact details</h2>
-      <p class="mt-4 text-muted">Prefer to talk directly? Reach us any of these ways and we'll be happy to help.</p>
+      <p class="mt-4 text-muted">Prefer to reach out directly? Any of these ways works.</p>
 
       <div class="mt-8 flex flex-col gap-6">
         {

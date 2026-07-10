@@ -1,9 +1,19 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import LocalBusinessSchema from '~/components/schema/LocalBusinessSchema.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import TestimonialsData from '~/components/widgets/TestimonialsData.astro';
+import FaqsData from '~/components/widgets/FaqsData.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
-  title: 'Home',
+  title: 'Creating Futures — CV Writing & Interview Coaching, Ireland',
+  description:
+    'Recruitment services for individuals and organisations. Professional CV writing, LinkedIn optimisation, cover letters and interview coaching from a career coach with 25 years of experience.',
   ignoreTitleTemplate: true,
 };
 ---
@@ -13,8 +23,119 @@ const metadata = {
     <LocalBusinessSchema />
   </Fragment>
 
-  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 max-w-4xl">
-    <h1 class="font-bold font-heading text-4xl md:text-5xl">Home</h1>
-    <p class="mt-4 text-muted">Placeholder — add your homepage content here.</p>
-  </section>
+  <Hero
+    tagline="CV & Interview Coach"
+    actions={[
+      { variant: 'primary', text: 'Make an inquiry', href: getPermalink('/contact') },
+      { variant: 'secondary', text: 'View services', href: getPermalink('/services') },
+    ]}
+  >
+    <Fragment slot="title">
+      Recruitment services for <span class="text-primary">individuals</span>
+      {' and '}
+      <span class="text-primary">organisations</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      Only one person will get the job you're after — and you need an edge to be that person. Expert CV writing,
+      LinkedIn optimisation and interview coaching from a qualified guidance professional and recruiter with over 25
+      years' experience.
+    </Fragment>
+  </Hero>
+
+  <Features
+    id="services"
+    tagline="What I do"
+    title="Services built around your next role"
+    subtitle="Every service is delivered one-to-one, online, and tailored to the role you're going after."
+    columns={3}
+    items={[
+      {
+        title: 'Professional CV Writing',
+        description:
+          'An impactful, achievement-led CV written with recruiters in mind — and targeted to the role you want.',
+        icon: 'tabler:file-text',
+        callToAction: { text: 'Learn more', href: getPermalink('/services/professional-cv-writing') },
+      },
+      {
+        title: 'LinkedIn Rewrite & Optimisation',
+        description:
+          'A polished, search-optimised profile that makes the right recruiters contact you about the right roles.',
+        icon: 'tabler:brand-linkedin',
+        callToAction: { text: 'Learn more', href: getPermalink('/services/linkedin-rewrite-and-optimisation') },
+      },
+      {
+        title: 'Targeted Cover Letters',
+        description:
+          'A tailored cover letter that answers the question every recruiter asks: "Why should we interview you?"',
+        icon: 'tabler:mail',
+        callToAction: { text: 'Learn more', href: getPermalink('/services/targeted-cover-letters') },
+      },
+      {
+        title: 'Interview Coaching',
+        description:
+          'Mock interviews and detailed feedback that build confidence and prepare you to perform when it counts.',
+        icon: 'tabler:messages',
+        callToAction: { text: 'Learn more', href: getPermalink('/services/interview-coaching') },
+      },
+      {
+        title: 'Application Form Review',
+        description:
+          'Civil service and competency-based application forms reviewed in detail against the role’s criteria.',
+        icon: 'tabler:checklist',
+        callToAction: { text: 'Learn more', href: getPermalink('/services/application-form-review') },
+      },
+      {
+        title: 'Organisations & Schools',
+        description: 'Independent interviewing, bespoke recruitment support, and CV & interview workshops for schools.',
+        icon: 'tabler:building',
+        callToAction: { text: 'Learn more', href: getPermalink('/organisations') },
+      },
+    ]}
+  />
+
+  <Stats
+    title="Experience that gives you the edge"
+    stats={[
+      { title: 'Years in recruitment & career guidance', amount: '25+', icon: 'tabler:briefcase' },
+      { title: 'Job seekers supported', amount: '1000s', icon: 'tabler:users' },
+      { title: 'Recruiters worked with', amount: '100s', icon: 'tabler:building-community' },
+      { title: 'Clients per month — for real attention', amount: '3–4', icon: 'tabler:heart-handshake' },
+    ]}
+  />
+
+  <Steps
+    title="How it works"
+    items={[
+      {
+        title: 'Get in touch',
+        description: 'Send an inquiry with your current CV and the roles you’re interested in.',
+        icon: 'tabler:mail-fast',
+      },
+      {
+        title: 'Online consultation',
+        description: 'We meet online to talk through your experience, strengths and career goals.',
+        icon: 'tabler:video',
+      },
+      {
+        title: 'Tailored delivery',
+        description: 'A targeted CV, LinkedIn profile, cover letter or coaching plan — built for the role you want.',
+        icon: 'tabler:target-arrow',
+      },
+      {
+        title: 'Land the interview',
+        description: 'Review, refine and prepare — so you walk in with the edge over other candidates.',
+        icon: 'tabler:award',
+      },
+    ]}
+  />
+
+  <TestimonialsData tagline="Testimonials" title="Messages from clients who got the job" />
+
+  <FaqsData tagline="FAQs" title="Frequently asked questions" columns={2} />
+
+  <CallToAction
+    title="Ready to be intentional about your career?"
+    subtitle="Tell me about the role you're after and I'll come back to you — I take on just 3–4 clients a month, so early contact is best."
+    actions={[{ variant: 'primary', text: 'Make an inquiry', href: getPermalink('/contact') }]}
+  />
 </Layout>

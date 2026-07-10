@@ -80,7 +80,11 @@ export default defineConfig({
     ),
 
     compress({
-      CSS: true,
+      // Keep CSS compression OFF: astro-compress (csso) doesn't understand the
+      // range media-query syntax Tailwind 4 emits (`@media (width >= 48rem)`)
+      // and silently strips every sm:/md:/lg: rule, leaving the site stuck in
+      // the mobile layout. Vite already minifies CSS during the build anyway.
+      CSS: false,
       HTML: {
         'html-minifier-terser': {
           removeAttributeQuotes: false,

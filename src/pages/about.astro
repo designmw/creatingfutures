@@ -1,14 +1,106 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import Breadcrumbs from '~/components/common/Breadcrumbs.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
-  title: 'About',
+  title: 'About Caroline Kennedy',
+  description:
+    'Caroline Kennedy is a qualified guidance professional, recruiter, CV writer and career coach with over 25 years of experience helping job seekers across Ireland.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 max-w-4xl">
-    <h1 class="font-bold font-heading text-4xl md:text-5xl">About</h1>
-    <p class="mt-4 text-muted">Placeholder — add your about page content here.</p>
+  <section class="px-4 pt-12 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
+
+    <h1 class="mt-6 font-bold font-heading text-4xl md:text-5xl tracking-tight">About me</h1>
+    <p class="mt-4 text-xl text-muted">
+      I'm Caroline Kennedy — a qualified guidance professional, recruiter, CV writer, experienced career coach and
+      lecturer with over 25 years' career planning and recruitment experience.
+    </p>
+
+    <h2 class="mt-12 font-bold font-heading text-3xl md:text-4xl">
+      Only one person will get the job you're after — <span class="text-primary">you need an edge</span> to be that person
+    </h2>
+    <p class="mt-4 text-lg text-muted">
+      Over the last two decades I have worked with thousands of job seekers and career transitioners, helping them
+      realise their strengths, develop a personal brand, and clearly demonstrate their unique skills and value to
+      prospective employers at every stage of the recruitment process.
+    </p>
   </section>
+
+  <Features
+    columns={3}
+    items={[
+      {
+        title: 'Who I work with',
+        description:
+          'Senior, mid-career and entry-level clients, graduates and students who are ready to be intentional about their job search and invest in their career.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'What I do',
+        description:
+          'I write impactful and engaging CVs, cover letters and LinkedIn profiles, and help clients prepare for interview and understand their strengths and values.',
+        icon: 'tabler:pencil',
+      },
+      {
+        title: 'Where I started',
+        description:
+          'I began my career in recruitment in London, recruiting senior finance and tax professionals, before moving into career guidance in Dublin 20 years ago.',
+        icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+
+  <section class="px-4 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+    <h2 class="font-bold font-heading text-3xl md:text-4xl">Expert support — not generic advice</h2>
+    <p class="mt-4 text-lg text-muted">
+      There's lots of free advice out there, but much of it is inaccurate or generic. Google doesn't offer tailored
+      guidance based on a thorough understanding of your skills, experience and career aspirations.
+    </p>
+    <p class="mt-4 text-lg text-muted">
+      To truly have the edge in a competitive employment market, you need expert support that helps you identify the
+      right role, aligns your LinkedIn profile with your career goals, gets your CV noticed in a crowded inbox, and
+      equips you to perform at a high level in interviews. Having worked closely with recruiters for 25 years, I
+      understand what it takes to succeed at every stage of the hiring process.
+    </p>
+  </section>
+
+  <Features2
+    title="Qualifications & certifications"
+    columns={2}
+    items={[
+      { title: 'BA (Hons) Psychology', icon: 'tabler:certificate' },
+      { title: 'MA in Social and Organisational Psychology', icon: 'tabler:certificate' },
+      {
+        title: 'Postgraduate Diploma in Career Education, Information and Guidance in Higher Education',
+        icon: 'tabler:certificate',
+      },
+      { title: 'MBTI Certification', icon: 'tabler:certificate' },
+      { title: 'EQ-i 2.0 / EQ360 Certification', icon: 'tabler:certificate' },
+      { title: 'Accredited Strengths Profile Practitioner', icon: 'tabler:certificate' },
+      { title: 'Member of the British Association of CV Writers (BACVW)', icon: 'tabler:certificate' },
+      { title: 'Trained Interview Panel Member', icon: 'tabler:certificate' },
+    ]}
+  />
+
+  <CallToAction
+    title="Let's give you the edge"
+    subtitle="I work with just 3–4 clients a month, so every client gets real attention. Send me a message about the role you're after, or connect with me on LinkedIn."
+    actions={[
+      { variant: 'primary', text: 'Make an inquiry', href: getPermalink('/contact') },
+      {
+        variant: 'secondary',
+        text: 'View my LinkedIn',
+        href: 'https://www.linkedin.com/in/carolinekennedycareers/',
+        target: '_blank',
+        icon: 'tabler:brand-linkedin',
+      },
+    ]}
+  />
 </Layout>

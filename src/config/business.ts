@@ -13,7 +13,7 @@
  *   Restaurant | CafeOrCoffeeShop
  *   LocalBusiness  ← safe fallback for anything else
  *
- * image must be an absolute URL (e.g. https://example.com/og-business.jpg)
+ * image must be an absolute URL (e.g. https://<client-domain>/og-business.jpg)
  * or a root-relative path that resolves once the site URL is set.
  */
 
@@ -55,24 +55,23 @@ export interface BusinessConfig {
 }
 
 export const business: BusinessConfig = {
-  name: 'Business Name',
-  legalName: 'Business Legal Name Ltd',
-  type: 'LocalBusiness',
-  url: 'https://example.com',
-  telephone: '+353 XX XXX XXXX',
-  email: 'info@example.com',
+  name: 'Creating Futures',
+  legalName: 'Creating Futures',
+  type: 'ProfessionalService',
+  url: 'https://creatingfutures.ie',
+  // Creating Futures publishes no phone number or street address — email only.
+  telephone: '',
+  email: 'Caroline@creatingfutures.ie',
   address: {
-    street: '1 Main Street',
-    locality: 'Tralee',
-    region: 'Co. Kerry',
-    postalCode: 'V92 XXXX',
+    street: '',
+    locality: 'Dublin',
+    region: 'Co. Dublin',
+    postalCode: '',
     country: 'IE',
   },
-  image: 'https://example.com/images/business.jpg',
-  description: 'Short business description for schema.',
-  openingHours: ['Mo-Fr 09:00-17:00'],
+  image: 'https://creatingfutures.ie/wp-content/uploads/2023/07/Creating-Futures-New-Logo.png',
+  description:
+    'Career coaching and recruitment services in Ireland — professional CV writing, LinkedIn optimisation, interview coaching and recruitment support for individuals and organisations.',
   priceRange: '€€',
-  sameAs: [],
-  // Only enable with a REAL rating that is also displayed on the site:
-  // aggregateRating: { ratingValue: 4.9, reviewCount: 37 },
+  sameAs: ['https://www.linkedin.com/in/carolinekennedycareers/'],
 };
