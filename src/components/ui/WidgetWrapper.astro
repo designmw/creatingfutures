@@ -13,7 +13,8 @@ const { id, isDark = false, containerClass = '', bg, as = 'section' } = Astro.pr
 const WrapperTag = as;
 ---
 
-<WrapperTag class="relative not-prose scroll-mt-[72px]" {...id ? { id } : {}}>
+{/* rem, not px: the header grows with the 2xl root font bump, so anchor targets must too. */}
+<WrapperTag class="relative not-prose scroll-mt-[4.75rem]" {...id ? { id } : {}}>
   <div class="absolute inset-0 pointer-events-none -z-[1]" aria-hidden="true">
     <slot name="bg">
       {
