@@ -51,7 +51,15 @@ export default defineConfig({
   // and that pipeline (micromark → debug) imports Node built-ins like `tty`
   // that workerd can't resolve. Prerendering in Node sidesteps that; only the
   // genuinely on-demand routes (e.g. api/contact) run on workerd at the edge.
-  adapter: cloudflare({ prerenderEnvironment: 'node' }),
+  // In `astro dev` the default image service ('cloudflare-binding') registers
+  // an /_image endpoint that imports `cloudflare:workers`, but with
+  // `prerenderEnvironment: 'node'` that endpoint is loaded in the Node dev
+  // environment where the module can't resolve (FailedToLoadModuleSSR).
+  // Use the passthrough service in dev only — builds keep the binding service.
+  adapter: cloudflare({
+    prerenderEnvironment: 'node',
+    ...(process.argv.includes('dev') ? { imageService: 'passthrough' as const } : {}),
+  }),
 
   integrations: [
     sitemap(),

@@ -9,4 +9,16 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "creating-futures",
   "compatibility_date": "2026-04-15",
+  // nodejs_compat gives workerd a `process` global etc. Without it, Astro's
+  // dev-server logger crashes ("process is not defined") whenever an
+  // on-demand route (e.g. /_image) errors inside workerd, masking the cause.
+  "compatibility_flags": ["nodejs_compat"],
+  // Demo URL — served via a zone route because creating-futures.dmwdev.com
+  // already has a proxied DNS record in the dmwdev.com zone (a Workers
+  // custom domain refuses to attach over an existing record). Swap for the
+  // client's real domain at go-live.
+  "routes": [{ "pattern": "creating-futures.dmwdev.com/*", "zone_name": "dmwdev.com" }],
+  // Existing KV namespace for Astro sessions — bound explicitly so deploys
+  // don't try to re-provision it (the name is already taken in this account).
+  "kv_namespaces": [{ "binding": "SESSION", "id": "f7d124573e6f43808e31559d579060dd" }],
 }

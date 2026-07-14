@@ -82,5 +82,5 @@ export const footerData = {
     ...(linkedInHref ? [{ ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: linkedInHref }] : []),
     ...(emailHref ? [{ ariaLabel: 'Email', icon: 'tabler:mail', href: emailHref }] : []),
   ],
-  footNote: `${business.name}. All rights reserved. Website by <a href="https://designmywebsite.ie" target="_blank" rel="noopener noreferrer" class="hover:underline">Design My Website</a>`,
+  footNote: `${business.name}. All rights reserved. Website by <a href="https://designmywebsite.ie" target="_blank" rel="noopener noreferrer" class="hover:underline">Design My Website</a> <svg class="inline-block w-4 h-3 align-baseline rounded-[1px]" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Irish flag"><rect width="1" height="2" fill="#169B62"/><rect x="1" width="1" height="2" fill="#ffffff"/><rect x="2" width="1" height="2" fill="#FF883E"/></svg>`,
 };

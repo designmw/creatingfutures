@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import LocalBusinessSchema from '~/components/schema/LocalBusinessSchema.astro';
-import Hero from '~/components/widgets/Hero.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
 import Features from '~/components/widgets/Features.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Stats from '~/components/widgets/Stats.astro';
@@ -9,6 +9,7 @@ import TestimonialsData from '~/components/widgets/TestimonialsData.astro';
 import FaqsData from '~/components/widgets/FaqsData.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
+import heroImage from '~/assets/images/caroline-kennedy-hero.jpg';
 
 const metadata = {
   title: 'Creating Futures — CV Writing & Interview Coaching, Ireland',
@@ -23,8 +24,13 @@ const metadata = {
     <LocalBusinessSchema />
   </Fragment>
 
-  <Hero
+  <Hero2
     tagline="CV & Interview Coach"
+    image={{
+      src: heroImage,
+      alt: 'Caroline Kennedy, career coach and CV writer at Creating Futures',
+      fetchpriority: 'high',
+    }}
     actions={[
       { variant: 'primary', text: 'Make an inquiry', href: getPermalink('/contact') },
       { variant: 'secondary', text: 'View services', href: getPermalink('/services') },
@@ -40,7 +46,7 @@ const metadata = {
       LinkedIn optimisation and interview coaching from a qualified guidance professional and recruiter with over 25
       years' experience.
     </Fragment>
-  </Hero>
+  </Hero2>
 
   <Features
     id="services"
