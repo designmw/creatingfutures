@@ -21,14 +21,17 @@ const metadata = {
     />
   </Fragment>
 
-  <section class="px-4 pt-12 sm:px-6 mx-auto lg:px-8 max-w-4xl">
-    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Organisations' }]} />
+  {/* Black title band — alternates with the page background down the page. */}
+  <section class="bg-black">
+    <div class="px-4 pt-12 pb-14 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Organisations' }]} />
 
-    <h1 class="mt-6 font-bold font-heading text-4xl md:text-5xl tracking-tight">Organisations</h1>
-    <p class="mt-4 text-xl text-muted">
-      Bespoke recruitment support and independent interviewing for SMEs, corporates and public sector organisations —
-      from an experienced recruiter who has interviewed thousands of candidates.
-    </p>
+      <h1 class="mt-6 font-bold font-heading text-4xl md:text-5xl tracking-tight">Organisations</h1>
+      <p class="mt-4 text-xl text-muted">
+        Bespoke recruitment support and independent interviewing for SMEs, corporates and public sector organisations —
+        from an experienced recruiter who has interviewed thousands of candidates.
+      </p>
+    </div>
   </section>
 
   <Features
@@ -51,6 +54,7 @@ const metadata = {
   />
 
   <Features
+    isDark
     tagline="Recruitment services"
     title="Bespoke recruitment support, end to end"
     subtitle="Practical help at every stage of the hiring process, tailored to your organisation."

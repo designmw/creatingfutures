@@ -23,7 +23,9 @@ const {
 
 {/* Header offset must stay in rem: <html> gets 2xl:text-[20px], so the rem-padded header grows at 2xl and a px offset would leave a gap. 6.5625rem = measured header height (h-20 logo + padding). */}
 <section class="relative md:-mt-[6.5625rem] not-prose">
-  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <slot name="bg" />
+  </div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
     <div class="pt-0 md:pt-[6.5625rem] pointer-events-none"></div>
     <div class="py-12 md:py-20 pb-8 md:pb-8">

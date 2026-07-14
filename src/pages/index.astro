@@ -125,6 +125,7 @@ const metadata = {
   </section>
 
   <Stats
+    isDark
     title="Experience that gives you the edge"
     stats={[
       { title: 'Years in recruitment & career guidance', amount: '25+', icon: 'tabler:briefcase' },
@@ -164,11 +165,12 @@ const metadata = {
     ]}
   />
 
-  <TestimonialsData tagline="Testimonials" title="Messages from clients who got the job" />
+  <TestimonialsData isDark tagline="Testimonials" title="Messages from clients who got the job" />
 
   <FaqsData tagline="FAQs" title="Frequently asked questions" columns={2} />
 
   <CallToAction
+    isDark
     title="Ready to be intentional about your career?"
     subtitle="Tell me about the role you're after and I'll come back to you — I take on just 3–4 clients a month, so early contact is best."
     actions={[{ variant: 'primary', text: 'Make an inquiry', href: getPermalink('/contact') }]}

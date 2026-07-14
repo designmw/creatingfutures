@@ -20,13 +20,17 @@ const metadata = {
     tagline="Contact"
     title="Send me a message"
     subtitle="Tell me about the role you're after — or the support your organisation or school needs."
-  />
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-black"></div>
+    </Fragment>
+  </HeroText>
 
   <ContactUs
     id="form"
     title="Make an inquiry"
     button="Make an inquiry"
-    classes={{ container: 'pt-0 md:pt-0 lg:pt-0' }}
+    classes={{ container: 'pt-8 md:pt-10 lg:pt-12' }}
     description="Share a few details and I'll get back to you. I take on 3–4 clients a month, so early contact is best."
     inputs={[
       {

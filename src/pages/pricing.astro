@@ -69,18 +69,23 @@ const schoolTier = {
 ---
 
 <Layout metadata={metadata}>
-  <section class="px-4 py-12 sm:px-6 mx-auto lg:px-8 lg:py-16 max-w-6xl">
-    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Pricing' }]} />
+  {/* Black title band — alternates with the page background down the page. */}
+  <section class="bg-black">
+    <div class="px-4 pt-12 pb-14 sm:px-6 mx-auto lg:px-8 max-w-6xl">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Pricing' }]} />
 
-    <div class="mt-6 max-w-3xl">
-      <h1 class="font-bold font-heading text-4xl md:text-5xl tracking-tight">Pricing</h1>
-      <p class="mt-4 text-xl text-muted">
-        Clear, fixed prices based on your experience level — no surprises. Every service is delivered one-to-one and
-        tailored to the role you're targeting.
-      </p>
+      <div class="mt-6 max-w-3xl">
+        <h1 class="font-bold font-heading text-4xl md:text-5xl tracking-tight">Pricing</h1>
+        <p class="mt-4 text-xl text-muted">
+          Clear, fixed prices based on your experience level — no surprises. Every service is delivered one-to-one and
+          tailored to the role you're targeting.
+        </p>
+      </div>
     </div>
+  </section>
 
-    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <section class="px-4 py-12 sm:px-6 mx-auto lg:px-8 lg:py-16 max-w-6xl">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {
         tiers.map((tier) => (
           <div class="flex flex-col rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 shadow-sm">
@@ -132,6 +137,7 @@ const schoolTier = {
   </section>
 
   <CallToAction
+    isDark
     title="Not sure which option fits?"
     subtitle="Send me a note about where you are in your career and the role you're after — I'll recommend the right package."
     actions={[{ variant: 'primary', text: 'Make an inquiry', href: getPermalink('/contact') }]}

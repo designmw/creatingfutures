@@ -17,17 +17,23 @@ const services = (await getCollection('service', ({ data }) => !data.draft)).sor
 ---
 
 <Layout metadata={metadata}>
-  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 max-w-6xl">
-    <div class="max-w-3xl">
-      <h1 class="font-bold font-heading text-4xl md:text-5xl tracking-tight">Coaching for individuals</h1>
-      <p class="mt-4 text-xl text-muted">
-        One-to-one support at every stage of your job search — pick a service to learn more.
-      </p>
+  {/* Black title band — alternates with the page background down the page. */}
+  <section class="bg-black">
+    <div class="px-4 pt-12 pb-14 sm:px-6 mx-auto lg:px-8 max-w-6xl">
+      <div class="max-w-3xl">
+        <h1 class="font-bold font-heading text-4xl md:text-5xl tracking-tight">Coaching for individuals</h1>
+        <p class="mt-4 text-xl text-muted">
+          One-to-one support at every stage of your job search — pick a service to learn more.
+        </p>
+      </div>
     </div>
+  </section>
+
+  <section class="px-4 py-12 sm:px-6 mx-auto lg:px-8 lg:py-16 max-w-6xl">
 
     {
       services.length > 0 ? (
-        <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => (
             <a
               href={getPermalink(`/services/${service.id}`)}

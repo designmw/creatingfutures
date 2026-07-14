@@ -27,8 +27,10 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <section class="px-4 pt-12 sm:px-6 mx-auto lg:px-8 max-w-4xl">
-    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
+  {/* Black title band — alternates with the page background down the page. */}
+  <section class="bg-black">
+    <div class="px-4 pt-12 pb-14 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
 
     <div class="mt-6 md:flex md:items-center md:gap-10">
       <div class="md:flex-1">
@@ -55,11 +57,12 @@ const metadata = {
     <h2 class="mt-12 font-bold font-heading text-3xl md:text-4xl">
       Only one person will get the job you're after — <span class="text-primary">you need an edge</span> to be that person
     </h2>
-    <p class="mt-4 text-lg text-muted">
-      Over the last two decades I have worked with thousands of job seekers and career transitioners, helping them
-      realise their strengths, develop a personal brand, and clearly demonstrate their unique skills and value to
-      prospective employers at every stage of the recruitment process.
-    </p>
+      <p class="mt-4 text-lg text-muted">
+        Over the last two decades I have worked with thousands of job seekers and career transitioners, helping them
+        realise their strengths, develop a personal brand, and clearly demonstrate their unique skills and value to
+        prospective employers at every stage of the recruitment process.
+      </p>
+    </div>
   </section>
 
   <Features
@@ -86,18 +89,20 @@ const metadata = {
     ]}
   />
 
-  <section class="px-4 sm:px-6 mx-auto lg:px-8 max-w-4xl">
-    <h2 class="font-bold font-heading text-3xl md:text-4xl">Expert support — not generic advice</h2>
+  <section class="bg-black">
+    <div class="px-4 py-12 sm:px-6 mx-auto lg:px-8 max-w-4xl md:py-16">
+      <h2 class="font-bold font-heading text-3xl md:text-4xl">Expert support — not generic advice</h2>
     <p class="mt-4 text-lg text-muted">
       There's lots of free advice out there, but much of it is inaccurate or generic. Google doesn't offer tailored
       guidance based on a thorough understanding of your skills, experience and career aspirations.
     </p>
-    <p class="mt-4 text-lg text-muted">
-      To truly have the edge in a competitive employment market, you need expert support that helps you identify the
-      right role, aligns your LinkedIn profile with your career goals, gets your CV noticed in a crowded inbox, and
-      equips you to perform at a high level in interviews. Having worked closely with recruiters for 25 years, I
-      understand what it takes to succeed at every stage of the hiring process.
-    </p>
+      <p class="mt-4 text-lg text-muted">
+        To truly have the edge in a competitive employment market, you need expert support that helps you identify the
+        right role, aligns your LinkedIn profile with your career goals, gets your CV noticed in a crowded inbox, and
+        equips you to perform at a high level in interviews. Having worked closely with recruiters for 25 years, I
+        understand what it takes to succeed at every stage of the hiring process.
+      </p>
+    </div>
   </section>
 
   <section class="px-4 py-12 sm:px-6 mx-auto lg:px-8 max-w-4xl md:py-16">
@@ -115,6 +120,7 @@ const metadata = {
   </section>
 
   <CallToAction
+    isDark
     title="Let's give you the edge"
     subtitle="I work with just 3–4 clients a month, so every client gets real attention. Send me a message about the role you're after, or connect with me on LinkedIn."
     actions={[

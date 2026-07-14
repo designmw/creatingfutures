@@ -21,14 +21,17 @@ const metadata = {
     />
   </Fragment>
 
-  <section class="px-4 pt-12 sm:px-6 mx-auto lg:px-8 max-w-4xl">
-    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Schools' }]} />
+  {/* Black title band — alternates with the page background down the page. */}
+  <section class="bg-black">
+    <div class="px-4 pt-12 pb-14 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Schools' }]} />
 
-    <h1 class="mt-6 font-bold font-heading text-4xl md:text-5xl tracking-tight">Schools</h1>
-    <p class="mt-4 text-xl text-muted">
-      Practical, interactive workshops that prepare Senior Cycle and Transition Year students for part-time jobs, summer
-      work and work experience — and build confidence for their first interviews.
-    </p>
+      <h1 class="mt-6 font-bold font-heading text-4xl md:text-5xl tracking-tight">Schools</h1>
+      <p class="mt-4 text-xl text-muted">
+        Practical, interactive workshops that prepare Senior Cycle and Transition Year students for part-time jobs,
+        summer work and work experience — and build confidence for their first interviews.
+      </p>
+    </div>
   </section>
 
   <Features
@@ -58,6 +61,7 @@ const metadata = {
   />
 
   <CallToAction
+    isDark
     title="Bring a workshop to your school"
     subtitle="Workshops fit neatly into Transition Year and Senior Cycle programmes — get in touch to arrange a date."
     actions={[{ variant: 'primary', text: 'Make an inquiry', href: getPermalink('/contact') }]}

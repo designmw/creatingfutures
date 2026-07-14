@@ -28,8 +28,10 @@ const metadata = {
     <ServiceSchema name={service.data.title} description={service.data.excerpt} />
   </Fragment>
 
-  <section class="px-4 py-12 sm:px-6 mx-auto lg:px-8 lg:py-16 max-w-4xl">
-    <Breadcrumbs
+  {/* Black title band — alternates with the page background down the page. */}
+  <section class="bg-black">
+    <div class="px-4 pt-12 pb-14 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+      <Breadcrumbs
       items={[{ label: 'Home', href: '/' }, { label: 'Individuals', href: '/services' }, { label: service.data.title }]}
     />
 
@@ -49,8 +51,12 @@ const metadata = {
       )
     }
 
+  </div>
+  </section>
+
+  <section class="px-4 py-12 sm:px-6 mx-auto lg:px-8 max-w-4xl">
     <div
-      class="mt-8 prose prose-lg dark:prose-invert prose-headings:font-heading prose-headings:font-bold prose-a:text-primary max-w-none"
+      class="prose prose-lg dark:prose-invert prose-headings:font-heading prose-headings:font-bold prose-a:text-primary max-w-none"
     >
       <Content />
     </div>
