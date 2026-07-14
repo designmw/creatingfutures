@@ -55,13 +55,17 @@ const tiers = [
       { label: 'Application form review', price: '€150' },
     ],
   },
-  {
-    name: 'School Level',
-    note: 'Students',
-    icon: 'tabler:backpack',
-    items: [{ label: 'CV & cover letter', price: '€60' }],
-  },
 ];
+
+// School level is a single service, so it renders as a compact banner
+// under the grid rather than a near-empty fourth card.
+const schoolTier = {
+  name: 'School Level',
+  note: 'Students',
+  icon: 'tabler:backpack',
+  label: 'CV & cover letter',
+  price: '€60',
+};
 ---
 
 <Layout metadata={metadata}>
@@ -76,7 +80,7 @@ const tiers = [
       </p>
     </div>
 
-    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {
         tiers.map((tier) => (
           <div class="flex flex-col rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 shadow-sm">
@@ -100,6 +104,24 @@ const tiers = [
           </div>
         ))
       }
+    </div>
+
+    <div class="mt-6 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 shadow-sm sm:flex sm:items-center sm:justify-between sm:gap-6">
+      <div class="flex items-center gap-3">
+        <span
+          class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gray-100 dark:bg-slate-800 shrink-0"
+        >
+          <Icon name={schoolTier.icon} class="h-6 w-6 text-primary" />
+        </span>
+        <div>
+          <h2 class="font-semibold font-heading text-xl text-heading">{schoolTier.name}</h2>
+          <p class="text-sm text-muted">{schoolTier.note}</p>
+        </div>
+      </div>
+      <div class="mt-4 sm:mt-0 flex items-baseline justify-between sm:justify-end gap-4">
+        <span class="text-default">{schoolTier.label}</span>
+        <span class="font-semibold text-primary whitespace-nowrap">{schoolTier.price}</span>
+      </div>
     </div>
 
     <p class="mt-8 text-muted">

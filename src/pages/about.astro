@@ -2,9 +2,22 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Breadcrumbs from '~/components/common/Breadcrumbs.astro';
 import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Image from '~/components/common/Image.astro';
+import { Icon } from 'astro-icon/components';
 import { getPermalink } from '~/utils/permalinks';
+import portrait from '~/assets/images/caroline-kennedy-hero.jpg';
+
+const qualifications = [
+  'BA (Hons) Psychology',
+  'MA in Social and Organisational Psychology',
+  'Postgraduate Diploma in Career Education, Information and Guidance in Higher Education',
+  'MBTI Certification',
+  'EQ-i 2.0 / EQ360 Certification',
+  'Accredited Strengths Profile Practitioner',
+  'Member of the British Association of CV Writers (BACVW)',
+  'Trained Interview Panel Member',
+];
 
 const metadata = {
   title: 'About Caroline Kennedy',
@@ -17,11 +30,27 @@ const metadata = {
   <section class="px-4 pt-12 sm:px-6 mx-auto lg:px-8 max-w-4xl">
     <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
 
-    <h1 class="mt-6 font-bold font-heading text-4xl md:text-5xl tracking-tight">About me</h1>
-    <p class="mt-4 text-xl text-muted">
-      I'm Caroline Kennedy — a qualified guidance professional, recruiter, CV writer, experienced career coach and
-      lecturer with over 25 years' career planning and recruitment experience.
-    </p>
+    <div class="mt-6 md:flex md:items-center md:gap-10">
+      <div class="md:flex-1">
+        <h1 class="font-bold font-heading text-4xl md:text-5xl tracking-tight">About me</h1>
+        <p class="mt-4 text-xl text-muted">
+          I'm Caroline Kennedy — a qualified guidance professional, recruiter, CV writer, experienced career coach and
+          lecturer with over 25 years' career planning and recruitment experience.
+        </p>
+      </div>
+      <div class="mt-8 md:mt-0 md:w-72 shrink-0">
+        <Image
+          src={portrait}
+          alt="Caroline Kennedy, career coach and CV writer at Creating Futures"
+          class="rounded-md w-full max-w-xs mx-auto"
+          widths={[320, 576]}
+          sizes="(max-width: 767px) 320px, 288px"
+          width={288}
+          height={288}
+          loading="eager"
+        />
+      </div>
+    </div>
 
     <h2 class="mt-12 font-bold font-heading text-3xl md:text-4xl">
       Only one person will get the job you're after — <span class="text-primary">you need an edge</span> to be that person
@@ -71,23 +100,19 @@ const metadata = {
     </p>
   </section>
 
-  <Features2
-    title="Qualifications & certifications"
-    columns={2}
-    items={[
-      { title: 'BA (Hons) Psychology', icon: 'tabler:certificate' },
-      { title: 'MA in Social and Organisational Psychology', icon: 'tabler:certificate' },
+  <section class="px-4 py-12 sm:px-6 mx-auto lg:px-8 max-w-4xl md:py-16">
+    <h2 class="font-bold font-heading text-3xl md:text-4xl text-center">Qualifications & certifications</h2>
+    <ul class="mt-8 grid gap-x-10 gap-y-4 sm:grid-cols-2">
       {
-        title: 'Postgraduate Diploma in Career Education, Information and Guidance in Higher Education',
-        icon: 'tabler:certificate',
-      },
-      { title: 'MBTI Certification', icon: 'tabler:certificate' },
-      { title: 'EQ-i 2.0 / EQ360 Certification', icon: 'tabler:certificate' },
-      { title: 'Accredited Strengths Profile Practitioner', icon: 'tabler:certificate' },
-      { title: 'Member of the British Association of CV Writers (BACVW)', icon: 'tabler:certificate' },
-      { title: 'Trained Interview Panel Member', icon: 'tabler:certificate' },
-    ]}
-  />
+        qualifications.map((qualification) => (
+          <li class="flex items-start gap-3">
+            <Icon name="tabler:certificate" class="w-6 h-6 shrink-0 text-primary mt-0.5" />
+            <span class="text-lg text-muted">{qualification}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 
   <CallToAction
     title="Let's give you the edge"

@@ -2,14 +2,58 @@
 import Layout from '~/layouts/PageLayout.astro';
 import LocalBusinessSchema from '~/components/schema/LocalBusinessSchema.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
-import Features from '~/components/widgets/Features.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import TestimonialsData from '~/components/widgets/TestimonialsData.astro';
 import FaqsData from '~/components/widgets/FaqsData.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { Icon } from 'astro-icon/components';
 import { getPermalink } from '~/utils/permalinks';
 import heroImage from '~/assets/images/caroline-kennedy-hero.jpg';
+
+const services = [
+  {
+    title: 'Professional CV Writing',
+    description:
+      'An impactful, achievement-led CV written with recruiters in mind — and targeted to the role you want.',
+    icon: 'tabler:file-text',
+    href: getPermalink('/services/professional-cv-writing'),
+  },
+  {
+    title: 'LinkedIn Rewrite & Optimisation',
+    description:
+      'A polished, search-optimised profile that makes the right recruiters contact you about the right roles.',
+    icon: 'tabler:brand-linkedin',
+    href: getPermalink('/services/linkedin-rewrite-and-optimisation'),
+  },
+  {
+    title: 'Targeted Cover Letters',
+    description:
+      'A tailored cover letter that answers the question every recruiter asks: "Why should we interview you?"',
+    icon: 'tabler:mail',
+    href: getPermalink('/services/targeted-cover-letters'),
+  },
+  {
+    title: 'Interview Coaching',
+    description:
+      'Mock interviews and detailed feedback that build confidence and prepare you to perform when it counts.',
+    icon: 'tabler:messages',
+    href: getPermalink('/services/interview-coaching'),
+  },
+  {
+    title: 'Application Form Review',
+    description:
+      'Civil service and competency-based application forms reviewed in detail against the role’s criteria.',
+    icon: 'tabler:checklist',
+    href: getPermalink('/services/application-form-review'),
+  },
+  {
+    title: 'Organisations & Schools',
+    description: 'Independent interviewing, bespoke recruitment support, and CV & interview workshops for schools.',
+    icon: 'tabler:building',
+    href: getPermalink('/organisations'),
+  },
+];
 
 const metadata = {
   title: 'Creating Futures — CV Writing & Interview Coaching, Ireland',
@@ -36,10 +80,11 @@ const metadata = {
       { variant: 'secondary', text: 'View services', href: getPermalink('/services') },
     ]}
   >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-black"></div>
+    </Fragment>
     <Fragment slot="title">
-      Recruitment services for <span class="text-primary">individuals</span>
-      {' and '}
-      <span class="text-primary">organisations</span>
+      Recruitment services for individuals and organisations.
     </Fragment>
     <Fragment slot="subtitle">
       Only one person will get the job you're after — and you need an edge to be that person. Expert CV writing,
@@ -48,56 +93,36 @@ const metadata = {
     </Fragment>
   </Hero2>
 
-  <Features
-    id="services"
-    tagline="What I do"
-    title="Services built around your next role"
-    subtitle="Every service is delivered one-to-one, online, and tailored to the role you're going after."
-    columns={3}
-    items={[
+  <section id="services" class="px-4 py-12 sm:px-6 mx-auto lg:px-8 lg:py-16 max-w-6xl">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="text-base text-secondary dark:text-accent font-bold tracking-wide uppercase">What I do</p>
+      <h2 class="mt-2 font-bold font-heading text-3xl md:text-4xl">Services built around your next role</h2>
+      <p class="mt-4 text-xl text-muted">
+        Every service is delivered one-to-one, online, and tailored to the role you're going after.
+      </p>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {
-        title: 'Professional CV Writing',
-        description:
-          'An impactful, achievement-led CV written with recruiters in mind — and targeted to the role you want.',
-        icon: 'tabler:file-text',
-        callToAction: { text: 'Learn more', href: getPermalink('/services/professional-cv-writing') },
-      },
-      {
-        title: 'LinkedIn Rewrite & Optimisation',
-        description:
-          'A polished, search-optimised profile that makes the right recruiters contact you about the right roles.',
-        icon: 'tabler:brand-linkedin',
-        callToAction: { text: 'Learn more', href: getPermalink('/services/linkedin-rewrite-and-optimisation') },
-      },
-      {
-        title: 'Targeted Cover Letters',
-        description:
-          'A tailored cover letter that answers the question every recruiter asks: "Why should we interview you?"',
-        icon: 'tabler:mail',
-        callToAction: { text: 'Learn more', href: getPermalink('/services/targeted-cover-letters') },
-      },
-      {
-        title: 'Interview Coaching',
-        description:
-          'Mock interviews and detailed feedback that build confidence and prepare you to perform when it counts.',
-        icon: 'tabler:messages',
-        callToAction: { text: 'Learn more', href: getPermalink('/services/interview-coaching') },
-      },
-      {
-        title: 'Application Form Review',
-        description:
-          'Civil service and competency-based application forms reviewed in detail against the role’s criteria.',
-        icon: 'tabler:checklist',
-        callToAction: { text: 'Learn more', href: getPermalink('/services/application-form-review') },
-      },
-      {
-        title: 'Organisations & Schools',
-        description: 'Independent interviewing, bespoke recruitment support, and CV & interview workshops for schools.',
-        icon: 'tabler:building',
-        callToAction: { text: 'Learn more', href: getPermalink('/organisations') },
-      },
-    ]}
-  />
+        services.map(({ title, description, icon, href }) => (
+          <a
+            href={href}
+            class="group flex flex-col rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 shadow-sm hover:shadow-md hover:border-primary transition duration-150 ease-in-out intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade intersect-quarter"
+          >
+            <span class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-gray-100 dark:bg-slate-800">
+              <Icon name={icon} class="h-6 w-6 text-primary" />
+            </span>
+            <h3 class="font-semibold font-heading text-xl text-heading group-hover:text-primary">{title}</h3>
+            <p class="mt-2 text-muted flex-auto">{description}</p>
+            <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">
+              Learn more
+              <Icon name="tabler:arrow-right" class="h-4 w-4" />
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
 
   <Stats
     title="Experience that gives you the edge"
@@ -111,6 +136,10 @@ const metadata = {
 
   <Steps
     title="How it works"
+    classes={{
+      container: 'max-w-3xl',
+      headline: { container: 'text-center', title: 'text-3xl lg:text-4xl' },
+    }}
     items={[
       {
         title: 'Get in touch',

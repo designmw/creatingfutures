@@ -56,7 +56,7 @@ export const footerData = {
       links: [
         { text: 'Home', href: getPermalink('/'), icon: 'tabler:home' },
         { text: 'About', href: getPermalink('/about'), icon: 'tabler:user' },
-        { text: 'Coaching for individuals', href: getPermalink('/services'), icon: 'tabler:briefcase' },
+        { text: 'Individuals', href: getPermalink('/services'), icon: 'tabler:briefcase' },
         { text: 'Organisations', href: getPermalink('/organisations'), icon: 'tabler:building' },
         { text: 'Schools', href: getPermalink('/schools'), icon: 'tabler:school' },
         { text: 'Pricing', href: getPermalink('/pricing'), icon: 'tabler:tag' },

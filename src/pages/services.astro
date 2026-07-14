@@ -41,13 +41,31 @@ const services = (await getCollection('service', ({ data }) => !data.draft)).sor
               <h2 class="font-semibold font-heading text-xl text-heading group-hover:text-primary">
                 {service.data.title}
               </h2>
-              {service.data.excerpt && <p class="mt-2 text-muted">{service.data.excerpt}</p>}
+              {service.data.excerpt && <p class="mt-2 text-muted flex-auto">{service.data.excerpt}</p>}
               <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">
                 Learn more
                 <Icon name="tabler:arrow-right" class="h-4 w-4" />
               </span>
             </a>
           ))}
+          <a
+            href={getPermalink('/organisations')}
+            class="group flex flex-col rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 shadow-sm hover:shadow-md hover:border-primary transition duration-150 ease-in-out"
+          >
+            <span class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-gray-100 dark:bg-slate-800">
+              <Icon name="tabler:building" class="h-6 w-6 text-primary" />
+            </span>
+            <h2 class="font-semibold font-heading text-xl text-heading group-hover:text-primary">
+              Organisations & Schools
+            </h2>
+            <p class="mt-2 text-muted flex-auto">
+              Independent interviewing, bespoke recruitment support, and CV & interview workshops for schools.
+            </p>
+            <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">
+              Learn more
+              <Icon name="tabler:arrow-right" class="h-4 w-4" />
+            </span>
+          </a>
         </div>
       ) : (
         <p class="mt-8 text-muted">

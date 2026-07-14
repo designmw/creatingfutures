@@ -30,4 +30,4 @@ Only one person will get the job you're after — and you need an edge to be tha
 5. You receive your edits — the whole process typically takes 5–7 days.
 6. You get final Word and PDF versions, so you can keep it updated yourself.
 
-Ready to get your CV noticed in a crowded inbox? [Make an inquiry](/contact) and let's get started.
+Ready to get your CV noticed in a crowded inbox? Let's get started.

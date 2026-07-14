@@ -30,4 +30,4 @@ Over the last 25 years I have worked with hundreds of recruiters. I understand h
 3. **First mock interview** — you practise your answers and get detailed feedback on areas to improve.
 4. **In-depth practice interview** — you apply the techniques, with comprehensive feedback.
 
-By the end, you'll have numerous specific, tangible examples that demonstrate the competencies and strengths the recruiter is looking for. [Make an inquiry](/contact) to start preparing.
+By the end, you'll have numerous specific, tangible examples that demonstrate the competencies and strengths the recruiter is looking for.

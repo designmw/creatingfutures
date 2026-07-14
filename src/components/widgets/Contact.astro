@@ -24,10 +24,14 @@ const {
 } = Astro.props;
 
 const tel = business.telephone;
+const linkedInHref = business.sameAs?.find((url) => url.includes('linkedin.com'));
 const details = [
   ...(tel ? [{ icon: 'tabler:phone', label: 'Phone', value: tel, href: `tel:${tel.replace(/\s/g, '')}` }] : []),
   ...(business.email
     ? [{ icon: 'tabler:mail', label: 'Email', value: business.email, href: `mailto:${business.email}` }]
+    : []),
+  ...(linkedInHref
+    ? [{ icon: 'tabler:brand-linkedin', label: 'LinkedIn', value: 'Connect on LinkedIn', href: linkedInHref }]
     : []),
   {
     icon: 'tabler:map-pin',

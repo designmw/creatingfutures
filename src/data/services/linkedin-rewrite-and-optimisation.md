@@ -24,4 +24,4 @@ Working with me, you'll get a professional, polished, search-optimised and exper
 2. We meet online to discuss your experience, achievements and career goals.
 3. I review and strengthen your profile section by section, aligning it with your professional brand.
 
-Want recruiters to find you? [Make an inquiry](/contact) today.
+Want recruiters to find you? Let's make your profile work for you.
